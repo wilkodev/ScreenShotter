@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace ScreenShotter
 {
@@ -20,14 +13,25 @@ namespace ScreenShotter
         {
             InitializeComponent();
             utl = new ScreenShotUtil();
-            
+
+            RegisterHotKeys();
+            ConfigureUI();
+        }
+
+        private void ConfigureUI()
+        {
+            directoryLabel.Text = "Images stored in: " + utl.Directory;
+            this.Width = this.Width;
+            this.Width = directoryLabel.Width + 30 + 12;
+        }
+
+        private void RegisterHotKeys()
+        {
             //Create 2 hotkeys:
             //Win+PrintScreen = Active Window Screenshot
             //Ctrl+PrintScreen = Whole Primary Screen Screenshot
             hotKey = new HotKeys(HotKeys.Constants.WIN, Keys.PrintScreen, this.Handle);
             hotKey2 = new HotKeys(HotKeys.Constants.CTRL, Keys.PrintScreen, this.Handle);
-
-            label1.Text = "Images stored in: " + utl.Directory;
         }
 
         /// <summary>
@@ -99,7 +103,7 @@ namespace ScreenShotter
             this.WindowState = FormWindowState.Normal;
         }
 
-        private void pathLabel_DoubleClick(object sender, System.EventArgs e)
+        private void directoryLabel_DoubleClick(object sender, System.EventArgs e)
         {
             Process.Start("explorer.exe", this.utl.Directory);
         }

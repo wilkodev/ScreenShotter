@@ -80,9 +80,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\NotifyIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\NotifyIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
