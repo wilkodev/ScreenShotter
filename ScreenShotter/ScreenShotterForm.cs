@@ -20,9 +20,10 @@ namespace ScreenShotter
 
         private void ConfigureUI()
         {
+            int ExtraWindowPixel = 42;
             directoryLabel.Text = "Images stored in: " + utl.Directory;
             this.Width = this.Width;
-            this.Width = directoryLabel.Width + 30 + 12;
+            this.Width = directoryLabel.Width + ExtraWindowPixel;
         }
 
         private void RegisterHotKeys()
