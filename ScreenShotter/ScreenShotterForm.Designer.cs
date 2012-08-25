@@ -67,6 +67,9 @@ namespace ScreenShotter
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             this.components.Add(notifyIcon);
 
+            //Update the icon
+            this.Icon = Properties.Resources.NotifyIcon;
+
             this.Load += new System.EventHandler(this.ScreenshotUtilityForm_Load);
             this.Resize += new System.EventHandler(this.ScreenshotUtilityForm_Resize);
         }
